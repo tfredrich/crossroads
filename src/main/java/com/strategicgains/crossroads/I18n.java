@@ -48,30 +48,69 @@ public class I18n
 		super();
 	}
 
+	/**
+	 * Initialize the Singleton I18n instance with the given I18nConfig.
+	 * 
+	 * @param config an {@link I18nConfig} instance.
+	 * @throws MalformedURLException if i81n.bundlePath value is not valid.
+	 * @see I18nConfig
+	 */
 	public static void initialize(I18nConfig config)
+	throws MalformedURLException
 	{
 		INSTANCE._init(config);
 	}
 
+	/**
+	 * Configure the ResourceBundle base name for the Singleton instance of I18n.
+	 * 
+	 * @param baseName a ResourceBundle base name.
+	 * @see ResourceBundle
+	 */
 	public static void setBaseName(String baseName)
 	{
 		INSTANCE._setBaseName(baseName);
 	}
 
+	/**
+	 * Typically, {@link ResourceBundle}s are loaded from the ClassPath. However, many
+	 * applications prefer to load {@link ResourceBundle}s from the file system so
+	 * they can be deployed and updated separately from the application.
+	 * <p/>
+	 * By setting a bundlePath, the directory in which {@link ResourceBundle}s live,
+	 * I18n will load resource bundles from that file location instead of from the classpath.
+	 * 
+	 * @param bundlePath A directory (including trailing slash) path to the {@link ResourceBundle} location. May be null to force I18n to load {@link ResourceBundle}s from the classpath.
+	 * @throws MalformedURLException if the bundlePath is not a valid path.
+	 */
 	public static void setBundlePath(String bundlePath)
 	throws MalformedURLException
 	{
 		INSTANCE._setBundlePath(bundlePath);
 	}
 
+	/**
+	 * Localize a key for the given locale and parameters.
+	 * 
+	 * @param i18nKey a key in a {@link ResourceBundle} file
+	 * @param locale the locale to use when localizing the output.
+	 * @param parameters An object array to use in substituting patterns in the resource bundle value.
+	 * @return a localized string or the i18nKey if it is not found in a resource bundle file.
+	 */
 	public static String localize(String i18nKey, Locale locale, Object... parameters)
 	{
 		return INSTANCE._localize(i18nKey, locale, parameters);
 	}
 
 	private void _init(I18nConfig config)
+	throws MalformedURLException
 	{
 		_setBaseName(config.getBaseName());
+		
+		if (config.hasBundlePath())
+		{
+			_setBundlePath(config.getBundlePath());
+		}
 	}
 
 	private void _setBaseName(String baseName)
