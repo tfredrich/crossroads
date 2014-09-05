@@ -5,15 +5,20 @@
 	<description>A small, lightweight Java library for i18n (Internationalization) / L10n (localization) of text messages.</description>
 	<url>https://github.com/tfredrich/crossroads</url>
 	<groupId>com.strategicgains</groupId>
-	<artifactId>CrossRoads</artifactId>
+	<artifactId>CrossRoads-Parent</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
 		<version>7</version>
 	</parent>
+
+	<modules>
+		<module>core</module>
+		<module>restexpress</module>
+	</modules>
 
 	<dependencies>
 		<dependency>
