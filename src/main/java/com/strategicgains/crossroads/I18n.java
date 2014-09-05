@@ -28,7 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Wraps ResourceBundle instances and MessageFormat to create a single point of internationalization
+ * Wraps ResourceBundle instances and MessageFormat to create a single point for internationalization
  * of string patterns.
  * 
  * @author toddf
@@ -73,7 +73,7 @@ public class I18n
 	}
 
 	/**
-	 * Typically, {@link ResourceBundle}s are loaded from the ClassPath. However, many
+	 * Typically, {@link ResourceBundle}s are loaded from the ClassPath. However, some
 	 * applications prefer to load {@link ResourceBundle}s from the file system so
 	 * they can be deployed and updated separately from the application.
 	 * <p/>
