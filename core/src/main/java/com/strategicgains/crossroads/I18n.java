@@ -76,10 +76,10 @@ public class I18n
 	 * Typically, {@link ResourceBundle}s are loaded from the ClassPath. However, some
 	 * applications prefer to load {@link ResourceBundle}s from the file system so
 	 * they can be deployed and updated separately from the application.
-	 * <p/>
+	 * <p>
 	 * By setting a bundlePath, the directory in which {@link ResourceBundle}s live,
 	 * I18n will load resource bundles from that file location instead of from the classpath.
-	 * 
+	 * </p>
 	 * @param bundlePath A directory (including trailing slash) path to the {@link ResourceBundle} location. May be null to force I18n to load {@link ResourceBundle}s from the classpath.
 	 * @throws MalformedURLException if the bundlePath is not a valid path.
 	 */
