@@ -71,7 +71,7 @@ public class I18nTest
 	@Test
 	public void shouldPerformCurrencySubstitution()
 	{
-		Double amount = new Double(1043.56789);
+		Double amount = Double.valueOf(1043.56789);
 		assertEquals("The currency amount is $1,043.57 this month.",
 			I18n.localize("s7", Locale.US, amount));
 
@@ -80,11 +80,11 @@ public class I18nTest
 
 		assertEquals("The currency amount is £1,043.57 this month.",
 			I18n.localize("s7", Locale.UK, amount));
-
-		assertEquals("La quantité de monnaie est 1 043,57 € ce mois-ci.", 
+		
+		assertEquals("La quantité de monnaie est 1 043,57\u00a0€ ce mois-ci.", 
 			I18n.localize("s7", Locale.FRANCE, amount));
 
-		assertEquals("Der Währungsbetrag ist 1.043,57 € in diesem Monat.", 
+		assertEquals("Der Währungsbetrag ist 1.043,57\u00a0€ in diesem Monat.", 
 			I18n.localize("s7", Locale.GERMANY, amount));
 	}
 }
